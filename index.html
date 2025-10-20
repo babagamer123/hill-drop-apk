@@ -11,76 +11,58 @@ body{
   display:flex; justify-content:center; align-items:center; min-height:100vh;
 }
 .card{
-  background:rgba(255,255,255,0.95); max-width:800px; width:100%; border-radius:16px;
+  background:rgba(255,255,255,0.95); max-width:720px; width:100%; border-radius:16px;
   box-shadow:0 15px 40px rgba(0,0,0,0.2);
-  display:flex; flex-direction:column; padding:24px; gap:20px;
-  overflow:hidden;
+  display:flex; flex-wrap:wrap; padding:24px; gap:24px;
 }
+.left{flex:0 0 180px; text-align:center;}
+.right{flex:1;}
 .app-logo{
   width:150px; height:150px; object-fit:contain; border-radius:20px;
-  border:3px solid #06b6d4; background:#fff; padding:5px; margin:0 auto;
-  display:block;
+  border:3px solid #06b6d4; background:#fff; padding:5px;
 }
-h1{margin:10px 0 5px 0; font-size:26px; text-align:center; color:#0f172a;}
-.version{margin-top:0; color:#64748b; font-weight:600; text-align:center;}
-.desc{color:#334155; margin:12px 0; line-height:1.5; text-align:center;}
-.download-btn{
-  display:block; margin:15px auto; text-align:center;
+h1{margin:0; font-size:26px; color:#0f172a;}
+.version{margin-top:8px; color:#64748b; font-weight:600;}
+.desc{color:#334155; margin-top:12px; line-height:1.5;}
+.download-row{margin-top:20px; display:flex; gap:12px; flex-wrap:wrap; align-items:center;}
+.btn{
   background:linear-gradient(90deg,#0ea5a4,#06b6d4); color:#fff; padding:14px 28px;
   border-radius:999px; text-decoration:none; font-weight:700; font-size:16px;
   box-shadow:0 6px 20px rgba(14,165,164,0.3); transition:0.3s;
 }
-.download-btn:hover{transform:scale(1.05);}
+.btn:hover{transform:scale(1.05);}
 .notes{margin-top:20px; padding:14px 16px; background:#f0f9f9; border-radius:12px; border:1px solid #d1f5f4; color:#334155;}
 footer{margin-top:20px; color:#94a3b8; font-size:13px; text-align:center;}
-
-/* Slider */
-.slider{position:relative; width:100%; max-width:720px; margin:20px auto; overflow:hidden; border-radius:12px;}
-.slides{display:flex; transition:0.5s ease;}
-.slides img{width:100%; flex-shrink:0;}
-@media(max-width:640px){.slides img{width:100%;}}
+@media(max-width:640px){ .left{flex-basis:100%;} .right{flex-basis:100%} .download-row{justify-content:center}}
 </style>
 </head>
 <body>
-
 <div class="card">
-  <img class="app-logo" src="https://i.ibb.co/93mXdQhW/logo.png" alt="Down Hill Bike Logo">
-  <h1>Down Hill Bike</h1>
-  <div class="version">Current version: <strong>v1.0.2</strong></div>
-  <p class="desc">Enjoy the latest version of Down Hill Bike with improved performance, bug fixes, and smoother gameplay. Click the button below to download the APK directly.</p>
-  <a class="download-btn" href="https://drive.google.com/uc?export=download&id=1jTCPbvPePI8zLpTdPviu6i0wjX_Ey7EE" download>Download APK</a>
-
-  <!-- Screenshots Slider with direct URLs -->
-  <div class="slider">
-    <div class="slides">
-      <img src="https://i.ibb.co/2d0QmVh/screenshot1.jpg" alt="Screenshot 1">
-      <img src="https://i.ibb.co/xXk2szt/screenshot2.jpg" alt="Screenshot 2">
-      <img src="https://i.ibb.co/Ny0hQ8Z/screenshot3.jpg" alt="Screenshot 3">
-    </div>
+  <div class="left">
+    <img class="app-logo" src="https://i.ibb.co/93mXdQhW/logo.png" alt="Down Hill Bike Logo">
+    <div class="meta" style="margin-top:10px">Size: 8.9 MB</div>
   </div>
-
-  <div class="notes">
-    <strong>What's new / Changelog:</strong>
-    <div class="changelog">
-      • Bug fixes and performance improvements.<br>
-      • Ads stability improved.<br>
-      • Gameplay balancing for smoother experience.
+  <div class="right">
+    <h1>Down Hill Bike</h1>
+    <div class="version">Current version: <strong>v1.0.2</strong></div>
+    <p class="desc">Enjoy the latest version of Down Hill Bike with improved performance, bug fixes, and smoother gameplay. Click the button below to download the APK directly.</p>
+    <div class="download-row">
+      <a class="btn" href="https://drive.google.com/uc?export=download&id=1jTCPbvPePI8zLpTdPviu6i0wjX_Ey7EE" download>Download APK</a>
+      <div style="display:flex;flex-direction:column">
+        <span class="meta">Released: Oct 20, 2025</span>
+        <span class="meta">Verified: Yes</span>
+      </div>
     </div>
+    <div class="notes">
+      <strong>What's new / Changelog:</strong>
+      <div class="changelog">
+        • Bug fixes and performance improvements.<br>
+        • Ads stability improved.<br>
+        • Gameplay balancing for smoother experience.
+      </div>
+    </div>
+    <footer>© 2025 Down Hill Bike. All rights reserved.</footer>
   </div>
-  <footer>© 2025 Down Hill Bike. All rights reserved.</footer>
 </div>
-
-<script>
-// Simple automatic slider
-let slides = document.querySelector('.slides');
-let total = slides.children.length;
-let index = 0;
-
-setInterval(()=>{
-  index = (index+1) % total;
-  slides.style.transform = `translateX(-${index*100}%)`;
-}, 3000);
-</script>
-
 </body>
 </html>
