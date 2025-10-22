@@ -7,32 +7,41 @@
   <style>
     body {
       font-family: Arial, sans-serif;
-      background-color: #f2f2f2;
+      background: linear-gradient(135deg, #6a11cb, #2575fc);
       text-align: center;
       padding: 20px;
+      min-height: 100vh;
+      margin: 0;
+      color: #fff;
     }
     .app-container {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
       gap: 20px;
+      margin-top: 30px;
     }
     .app-card {
-      background-color: #fff;
-      border-radius: 10px;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      background-color: #fff; /* white for logo visibility */
+      border-radius: 15px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
       width: 200px;
       padding: 20px;
-      transition: transform 0.2s;
+      transition: transform 0.2s, background-color 0.2s;
+      color: #000; /* text color black for contrast */
     }
     .app-card:hover {
       transform: scale(1.05);
+      background-color: #f0f0f0;
     }
     .app-logo {
       width: 100px;
       height: 100px;
       object-fit: contain;
       margin-bottom: 15px;
+      border-radius: 10px;
+      background-color: #fff;
+      padding: 10px;
     }
     h3 {
       margin-bottom: 15px;
@@ -43,6 +52,7 @@
       padding: 10px 15px;
       background-color: #007bff;
       color: white;
+      font-weight: bold;
       border-radius: 5px;
       text-decoration: none;
       transition: background-color 0.2s;
@@ -57,10 +67,10 @@
   <h1>Download Our Apps</h1>
   <div class="app-container">
 
-    <!-- Old App -->
+    <!-- Hill Drop (Old App) -->
     <div class="app-card">
-      <img src="https://ibb.co/Mkpkdpdd" alt="Old App Logo" class="app-logo">
-      <h3>Old App</h3>
+      <img src="https://ibb.co/Mkpkdpdd" alt="Hill Drop Logo" class="app-logo">
+      <h3>Hill Drop</h3>
       <a href="https://drive.google.com/file/d/15N1Mc0ry3PgYrCK5xH2WwTE2ROwzzdV9/view?usp=sharing" target="_blank" class="download-btn">Download</a>
     </div>
 
