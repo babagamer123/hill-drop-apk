@@ -1,87 +1,191 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Download Apps</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Hill Down — Download APK</title>
+  <meta name="description" content="Download Hill Down, an exciting hill racing and adventure game for Android. Version 1.0.5." />
   <style>
+    :root {
+      --accent: #0b84ff;
+      --bg-overlay: rgba(0, 0, 0, 0.55);
+      --text-light: #ffffff;
+      --muted: #d1d5db;
+      --card-width: 380px;
+    }
+    * { box-sizing: border-box; font-family: Poppins, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; }
+    html,body { height:100%; margin:0; }
     body {
-      font-family: Arial, sans-serif;
-      background: linear-gradient(135deg, #6a11cb, #2575fc);
-      text-align: center;
-      padding: 20px;
-      min-height: 100vh;
-      margin: 0;
-      color: #fff;
+      background: url('https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
+      display:flex; align-items:center; justify-content:center; min-height:100vh;
     }
-    .app-container {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 20px;
-      margin-top: 30px;
+    .overlay { position: fixed; inset:0; background: var(--bg-overlay); z-index:0; }
+    .card {
+      position: relative; z-index:2;
+      background: rgba(255,255,255,0.06);
+      backdrop-filter: blur(10px);
+      border-radius: 16px; padding: 28px; width: var(--card-width);
+      text-align: center; color: var(--text-light); box-shadow: 0 10px 30px rgba(0,0,0,0.3);
     }
-    .app-card {
-      background-color: #fff; /* white for logo visibility */
-      border-radius: 15px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-      width: 200px;
-      padding: 20px;
-      transition: transform 0.2s, background-color 0.2s;
-      color: #000; /* text color black for contrast */
+    .app-icon { width:100px; height:100px; border-radius:20px; object-fit:cover; border:3px solid rgba(255,255,255,0.85); margin:0 auto 10px; display:block; }
+    h1 { margin:8px 0 6px; font-size:24px; }
+    .desc { color:var(--muted); margin:0 0 14px; font-size:15px; }
+    .badges { display:flex; gap:10px; justify-content:center; margin-bottom:14px; align-items:center; }
+    .badge {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.08);
+      padding:8px 12px; border-radius:12px; font-weight:700; font-size:14px; color:var(--text-light);
+      display:flex; gap:8px; align-items:center;
+      min-width:92px; justify-content:center;
     }
-    .app-card:hover {
-      transform: scale(1.05);
-      background-color: #f0f0f0;
+    .downloads .num { font-size:16px; }
+    .rating { flex-direction:column; padding:8px 10px; gap:6px; }
+    .stars { display:flex; gap:4px; align-items:center; justify-content:center; }
+    .star { width:16px; height:16px; display:inline-block; }
+    .star svg { display:block; width:100%; height:100%; filter: drop-shadow(0 1px 1px rgba(0,0,0,0.3)); }
+    .btn {
+      display:inline-block; padding:12px 22px; border-radius:10px; background:var(--accent);
+      color:#fff; font-weight:700; text-decoration:none; box-shadow: 0 6px 18px rgba(11,132,255,0.25);
     }
-    .app-logo {
-      width: 100px;
-      height: 100px;
-      object-fit: contain;
-      margin-bottom: 15px;
-      border-radius: 10px;
-      background-color: #fff;
-      padding: 10px;
-    }
-    h3 {
-      margin-bottom: 15px;
-      font-size: 18px;
-    }
-    .download-btn {
-      display: inline-block;
-      padding: 10px 15px;
-      background-color: #007bff;
-      color: white;
-      font-weight: bold;
-      border-radius: 5px;
-      text-decoration: none;
-      transition: background-color 0.2s;
-    }
-    .download-btn:hover {
-      background-color: #0056b3;
+    .how { list-style:none; padding:0; margin:12px 0 6px; color:var(--muted); font-size:14px; }
+    .note { font-size:13px; color:#cbd5e1; margin-top:10px; }
+    footer { margin-top:14px; color:var(--muted); font-size:13px; }
+
+    @media (max-width:420px) {
+      .card { width:92%; padding:20px; }
+      .badges { flex-wrap:wrap; gap:8px; }
     }
   </style>
 </head>
 <body>
+  <div class="overlay" aria-hidden="true"></div>
 
-  <h1>Download Our Apps</h1>
-  <div class="app-container">
+  <main class="card" role="main" aria-labelledby="appTitle">
+    <!-- Logo you provided earlier -->
+    <img src="https://i.ibb.co/VWhLTZgs/app-icon.png" alt="Hill Down logo" class="app-icon" />
 
-    <!-- Hill Drop (Old App) -->
-    <div class="app-card">
-      <img src="https://ibb.co/Mkpkdpdd" alt="Hill Drop Logo" class="app-logo">
-      <h3>Hill Drop</h3>
-      <a href="https://drive.google.com/file/d/1c9SUpfNwR8EzsuPBOGP8kDd2HPrvPkSu/view?usp=sharing" target="_blank" class="download-btn">Download</a>
+    <h1 id="appTitle">Hill Down</h1>
+    <p class="desc">Get ready for a thrilling downhill racing adventure! Version <strong>1.0.5</strong></p>
+
+    <!-- BADGES: downloads set to 10000 (10K) -->
+    <div class="badges" aria-hidden="false">
+      <!-- downloads badge -->
+      <div class="badge downloads" role="status" aria-label="Downloads">
+        <div style="text-align:right">
+          <div style="font-size:12px; color:var(--muted); font-weight:600;">Downloads</div>
+          <!-- data-downloads set to 10000 -->
+          <div class="num" id="downloadNumber" data-downloads="10000">0</div>
+        </div>
+      </div>
+
+      <!-- rating badge -->
+      <div class="badge rating" aria-label="Rating" role="img" title="4.5 out of 5">
+        <div style="display:flex;flex-direction:column;align-items:center;">
+          <div style="font-size:12px;color:var(--muted);font-weight:600;">Rating</div>
+          <div style="display:flex;align-items:center;gap:8px;">
+            <div class="stars" id="stars" data-rating="4.5" aria-hidden="true"></div>
+            <div id="ratingNumber" style="font-weight:800;">4.5</div>
+          </div>
+          <div id="reviews" style="font-size:12px;color:var(--muted);" data-reviews="245">245 reviews</div>
+        </div>
+      </div>
     </div>
 
-    <!-- Lane Runner (New App) -->
-    <div class="app-card">
-      <img src="https://ibb.co/Lz6PqWv6" alt="Lane Runner Logo" class="app-logo">
-      <h3>Lane Runner</h3>
-      <a href="https://drive.google.com/file/d/1-Uhc4mZxYzt9QX8jwRSJ6Dlg9W-oQvuI/view?usp=sharing" target="_blank" class="download-btn">Download</a>
-    </div>
+    <!-- Updated direct download link using your new Drive file ID -->
+    <a class="btn" id="downloadBtn" href="https://drive.google.com/file/d/1c9SUpfNwR8EzsuPBOGP8kDd2HPrvPkSu/view?usp=sharing" download aria-label="Download Hill Down">
+      ⬇️ Download APK (v1.0.5)
+    </a>
 
-  </div>
+    <ul class="how">
+      <li><strong>Version:</strong> 1.0.5</li>
+      <li><strong>Size:</strong> (replace with actual)</li>
+    </ul>
 
+    <p class="note">If installation is blocked, allow installs from unknown sources in your device settings.</p>
+    <footer>Made with ❤️ by Daksh</footer>
+  </main>
+
+  <script>
+    // ---------- Config ----------
+    const downloadsTarget = parseInt(document.getElementById('downloadNumber').getAttribute('data-downloads')) || 10000;
+    const ratingValue = parseFloat(document.getElementById('stars').getAttribute('data-rating')) || 4.5;
+    const reviewsCount = parseInt(document.getElementById('reviews').getAttribute('data-reviews')) || 245;
+    // ----------------------------
+
+    // Animate downloads counter
+    (function animateDownloads() {
+      const el = document.getElementById('downloadNumber');
+      const end = downloadsTarget;
+      const duration = 1200;
+      const startTime = performance.now();
+
+      function frame(now) {
+        const progress = Math.min((now - startTime) / duration, 1);
+        const value = Math.floor(progress * end);
+        el.textContent = formatNumberShort(value);
+        if (progress < 1) requestAnimationFrame(frame);
+        else el.textContent = formatNumberShort(end) + (end >= 1000 ? '+' : '');
+      }
+      requestAnimationFrame(frame);
+
+      function formatNumberShort(n) {
+        if (n >= 1000000) return (n/1000000).toFixed(1).replace(/\.0$/,'') + 'M';
+        if (n >= 1000) return (n/1000).toFixed(1).replace(/\.0$/,'') + 'K';
+        return n.toString();
+      }
+    })();
+
+    // Render stars (full/half/empty)
+    (function renderStars() {
+      const container = document.getElementById('stars');
+      const rating = Math.max(0, Math.min(5, ratingValue));
+      container.innerHTML = '';
+      for (let i=1;i<=5;i++){
+        const starWrap = document.createElement('span');
+        starWrap.className = 'star';
+        const diff = rating - (i-1);
+        let svg;
+        if (diff >= 1) svg = fullStarSVG();
+        else if (diff >= 0.5) svg = halfStarSVG();
+        else svg = emptyStarSVG();
+        starWrap.innerHTML = svg;
+        container.appendChild(starWrap);
+      }
+      document.getElementById('ratingNumber').textContent = rating.toFixed(1).replace(/\.0$/,'');
+      const rev = parseInt(document.getElementById('reviews').getAttribute('data-reviews')) || reviewsCount;
+      document.getElementById('reviews').textContent = rev.toLocaleString() + ' reviews';
+
+      function fullStarSVG(){
+        return `<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#FFD166" d="M12 .587l3.668 7.431L23.5 9.75l-5.75 5.6L19.336 24 12 20.013 4.664 24l1.586-8.65L.5 9.75l7.832-1.732L12 .587z"/></svg>`;
+      }
+      function halfStarSVG(){
+        return `<svg viewBox="0 0 24 24" aria-hidden="true">
+          <defs><linearGradient id="halfGrad"><stop offset="50%" stop-color="#FFD166"/><stop offset="50%" stop-color="transparent"/></linearGradient></defs>
+          <path fill="url(#halfGrad)" d="M12 .587l3.668 7.431L23.5 9.75l-5.75 5.6L19.336 24 12 20.013 4.664 24l1.586-8.65L.5 9.75l7.832-1.732L12 .587z"/>
+          <path fill="rgba(255,255,255,0.15)" d="M12 .587l3.668 7.431L23.5 9.75l-5.75 5.6L19.336 24 12 20.013 4.664 24l1.586-8.65L.5 9.75l7.832-1.732L12 .587z" />
+        </svg>`;
+      }
+      function emptyStarSVG(){
+        return `<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="rgba(255,255,255,0.18)" d="M12 .587l3.668 7.431L23.5 9.75l-5.75 5.6L19.336 24 12 20.013 4.664 24l1.586-8.65L.5 9.75l7.832-1.732L12 .587z"/></svg>`;
+      }
+    })();
+
+    // Accessibility hidden live summary
+    (function addAriaUpdates() {
+      const downloadsEl = document.getElementById('downloadNumber');
+      const target = downloadsEl.getAttribute('data-downloads');
+      const live = document.createElement('span');
+      live.setAttribute('aria-live','polite');
+      live.style.position = 'absolute'; live.style.left='-9999px'; live.style.width='1px'; live.style.height='1px'; live.style.overflow='hidden';
+      live.textContent = `Downloads ${formatPretty(parseInt(target))}`;
+      document.body.appendChild(live);
+
+      function formatPretty(n){
+        if (n>=1000000) return (n/1000000).toFixed(1).replace(/\.0$/,'') + ' million';
+        if (n>=1000) return (n/1000).toFixed(1).replace(/\.0$/,'') + ' thousand';
+        return n.toString();
+      }
+    })();
+  </script>
 </body>
 </html>
